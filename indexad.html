@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script defer src="../script/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-item">
+            <div class="row container head1">
+                <div class="col-4">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">ГлавнаяП</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./indexad.html">ГлавнаяА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
+                </div>
+                <div class="col-4 logo">
+                    <a href="./index.html"><img src="./img/logo.png" alt="">
+                    <p class="text-center">Фуд-сервис</p></a>
+                </div>
+                <div class="col-4 reg d-flex justify-content-end">
+                    <a class="nav-link basket" href="./pages/cart.html"><img src="./img/basket.svg" alt=""></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./img/reg.svg" alt="">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Авторизация</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Регистрация</a></li>
+                        </ul>
+                    </li> 
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdrop1Label">Авторизация</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12 mt-5">
+                              <label for="validationCustom01" class="form-label">Номер телефона</label>
+                              <input type="text" class="form-control" id="validationCustom01" onkeypress='validate(event)' required>
+                              <div class="invalid-feedback">
+                                Введите верный номер телефона
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button class="btn btn-primary entrance" data-bs-dismiss="modal" type="submit"><a class="text-light" href="../pages/LKAcc.html">Лк пользователя</a></button>
+                                <button class="btn btn-primary entrance" data-bs-dismiss="modal" type="submit"><a class="text-light" href="../pages/LKAdmin.html">Лк админа</a></button>
+                                <button class="btn btn-primary entrance" data-bs-dismiss="modal" type="submit">Вход</button>                             
+                            </div>
+                          </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop2Label" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdrop2Label">Регистрация</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12 mt-5">
+                              <label for="validationCustom01" class="form-label">Никнейм</label>
+                              <input type="text" class="form-control" id="validationCustom01" required>
+                              <div class="invalid-feedback">
+                                Введите никнейм
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <label for="validationCustom02" class="form-label">Номер телефона</label>
+                              <input type="text" class="form-control" id="validationCustom02" onkeypress='validate(event)' required>
+                              <div class="valid-feedback">
+                                Всё отлично!
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <label for="validationCustomUsername" class="form-label">Почта</label>
+                              <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                  Введите свою почту
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <label for="validationCustom03" class="form-label">Город</label>
+                              <input type="text" class="form-control" id="validationCustom03" required>
+                              <div class="invalid-feedback">
+                                Введите свой город
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                  Согласен на обработку персональных данных
+                                </label>
+                                <div class="invalid-feedback">
+                                    Вы должны согласиться перед отправкой
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                              <button class="btn btn-primary entrance" type="submit">Зарегистрироваться</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <hr>
+            <div class="head2">
+                <li class="nav-item"><a class="nav-link" href="#pie1">Пироги</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pie2">Сладкие пироги</a></li>
+                <li class="nav-item"><a class="nav-link" href="#water">Напитки</a></li>
+                <li class="nav-item"><a class="nav-link" href="#stock">Акции</a></li>
+                <button class="but_admin__style" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">Добавить раздел</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop4Label" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <label for="validationCustomUsername" class="form-label">Введите название раздела</label>
+                            <div class="input-group has-validation">
+                              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary entrance" data-bs-dismiss="modal">Добавить</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </nav>    
+    </header>
+    <main class="container cat_block">
+        <div id="carouselExample" class="carousel slide slide_admin">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./img/banner1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./img/banner2.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <div class="but_admin">
+                <button class="but_admin__style">Редактировать изображение</button>
+                <button class="but_admin__style">Удалить изображение</button>
+            </div>
+        </div>
+        <h3 id="pie1">Пироги</h3>
+        <section class="catalog">
+            <div class="card_catal">
+                <img src="./img/pie/pie1.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Курник с грибами</h5>
+                    <p class="d-flex justify-content-end gram">0,5 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">699 р</p>
+                            <p class="sum" style="display: inline-block;"><b>500 р</b></p>
+                        </div>
+                        <button class="korz" data-bs-toggle="modal" data-bs-target="#exampleModal">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade modal_product" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="avail">*<span class="green">доступно</span> в вашем городе</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="block_prod__info">
+                            <div class="modal-body__img">
+                                <img src="./img/pie/pie1.png" alt="">
+                                <p class="articles">Артикул: 133523</p>
+                           </div>
+                           <div class="modal-body__info">
+                               <h4 class="mb-3">Курник с грибами</h4>
+                               <div class="act">
+                                   <div></div>
+                                   <p>Активен</p>
+                               </div>
+                               <p class="compound">Состав:</p>
+                               <p>Слоено-дрожжевое тесто, курица, шампиньоны, зелень, лук, сливочный соус, специи</p> 
+                               <ul class="nav nav-tabs nav-tabs_size" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Маленький</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Средний</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Большой</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active fz_tab-content" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">0.5 кг, 25 см</div>
+                                <div class="tab-pane fade fz_tab-content" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">1 кг, 30 см</div>
+                                <div class="tab-pane fade fz_tab-content" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">1.5 кг, 35 см</div>
+                              </div>
+                           </div>
+                        </div>                       
+                        <div class="d-flex align-items-end flex-column">
+                            <div class="sum">
+                                <b>500 р</b>
+                            </div>
+                            <button type="button" class="korz korz_prod">Добавить в корзину</button>
+                        </div>
+                    </div>
+                    <div class="modal-fot">
+                        <p class="dop">Добавить также:</p>
+                        <div class="prod_dop">
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/cheese.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Сыр</p>
+                                <p class="sum_prod__dop">59 р</p>
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/sauce.avif" alt="">
+                                </a>
+                                <p class="name_prod__dop">Соус</p>
+                                <p class="sum_prod__dop">59 р</p>
+                            </div>
+                            <div class="cart_prod_dop cart_prod_dop_red">
+                                <a href="#">
+                                    <img src="./img/poppy.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Мак</p>
+                                <p class="sum_prod__dop">59 р</p>
+                                <p class="bg_noProd"></p>
+                                <p class="red">*<span class="col_red">нет</span> в наличии</p>                               
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/onion.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Без лука</p>
+                                <p class="sum_prod__dop">0 р</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie2.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Овощной пирог</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">1000 р</p>
+                            <p class="sum" style="display: inline-block;"><b>800 р</b></p>
+                        </div>
+                        <button class="korz" data-bs-toggle="modal" data-bs-target="#exampleModal3">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade modal_product" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="avail">*<span class="green">доступно</span> в вашем городе</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="block_prod__info">
+                            <div class="modal-body__img">
+                                <img src="./img/pie/pie2.png" alt="">
+                                <p class="articles">Артикул: 141012</p>
+                           </div>
+                           <div class="modal-body__info">
+                               <h4 class="mb-3">Овощной пирог</h4>
+                               <div class="act">
+                                   <div></div>
+                                   <p>Активен</p>
+                               </div>
+                               <p class="compound">Состав:</p>
+                               <p>Слоено-дрожжевое тесто, молодые кабачки, помидоры, цукини, морковь, итальянские травы, лук</p> 
+                               <ul class="nav nav-tabs nav-tabs_size" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Маленький</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Средний</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Большой</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active fz_tab-content" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">0.5 кг, 25 см</div>
+                                <div class="tab-pane fade fz_tab-content" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">1 кг, 30 см</div>
+                                <div class="tab-pane fade fz_tab-content" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">1.5 кг, 35 см</div>
+                              </div>
+                           </div>
+                        </div>                       
+                        <div class="d-flex align-items-end flex-column">
+                            <div class="sum">
+                                <b>800 р</b>
+                            </div>
+                            <button type="button" class="korz korz_prod">Добавить в корзину</button>
+                        </div>
+                    </div>
+                    <div class="modal-fot">
+                        <p class="dop">Добавить также:</p>
+                        <div class="prod_dop">
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/cheese.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Сыр</p>
+                                <p class="sum_prod__dop">59 р</p>
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/sauce.avif" alt="">
+                                </a>
+                                <p class="name_prod__dop">Соус</p>
+                                <p class="sum_prod__dop">59 р</p>
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/broccoli.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Брокколи</p>
+                                <p class="sum_prod__dop">59 р</p>                         
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/onion.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Без лука</p>
+                                <p class="sum_prod__dop">0 р</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie3.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Рыбное ассорти</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">1200 р</p>
+                            <p class="sum" style="display: inline-block;"><b>1000 р</b></p>
+                        </div>
+                        <button class="korz" data-bs-toggle="modal" data-bs-target="#exampleModal4">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade modal_product" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="avail">*<span class="green">доступно</span> в вашем городе</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="block_prod__info">
+                            <div class="modal-body__img">
+                                <img src="./img/pie/pie3.png" alt="">
+                                <p class="articles">Артикул: 999867</p>
+                           </div>
+                           <div class="modal-body__info">
+                               <h4 class="mb-3">Рыбное ассорти</h4>
+                               <div class="act">
+                                   <div></div>
+                                   <p>Активен</p>
+                               </div>
+                               <p class="compound">Состав:</p>
+                               <p>Слоено-дрожжевое тесто, семга, хек, овощи, специи, лук</p> 
+                               <ul class="nav nav-tabs nav-tabs_size" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Маленький</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Средний</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Большой</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active fz_tab-content" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">0.5 кг, 25 см</div>
+                                <div class="tab-pane fade fz_tab-content" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">1 кг, 30 см</div>
+                                <div class="tab-pane fade fz_tab-content" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">1.5 кг, 35 см</div>
+                              </div>
+                           </div>
+                        </div>                       
+                        <div class="d-flex align-items-end flex-column">
+                            <div class="sum">
+                                <b>1000 р</b>
+                            </div>
+                            <button type="button" class="korz korz_prod">Добавить в корзину</button>
+                        </div>
+                    </div>
+                    <div class="modal-fot">
+                        <p class="dop">Добавить также:</p>
+                        <div class="prod_dop">
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/potato.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Картошка</p>
+                                <p class="sum_prod__dop">59 р</p>
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/sauce.avif" alt="">
+                                </a>
+                                <p class="name_prod__dop">Соус</p>
+                                <p class="sum_prod__dop">59 р</p>
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/rice.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Рис</p>
+                                <p class="sum_prod__dop">59 р</p>                         
+                            </div>
+                            <div class="cart_prod_dop">
+                                <a href="#">
+                                    <img src="./img/onion.png" alt="">
+                                </a>
+                                <p class="name_prod__dop">Без лука</p>
+                                <p class="sum_prod__dop">0 р</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie4.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Пирог с капустой</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>750 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie5.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Картошка и грибы</h5>
+                    <p class="d-flex justify-content-end gram">0,5 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">759 р</p>
+                            <p class="sum" style="display: inline-block;"><b>600 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie6.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Пирог с сёмгой</h5>
+                    <p class="d-flex justify-content-end gram">0,5 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">1299 р</p>
+                            <p class="sum" style="display: inline-block;"><b>1100 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie7.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Курица с овощами</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>900 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie8.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Зелёный лук с яйцом</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">1299 р</p>
+                            <p class="sum" style="display: inline-block;"><b>1200 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h3 id="pie2">Сладкие пироги</h3>
+        <section class="catalog">
+            <div class="card_catal">
+                <img src="./img/pie/pie9.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Пирог с малиной</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>800 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie10.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Пирог с клюквой</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>800 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie11.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Пирог с вишней</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>800 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/pie/pie12.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Творожник с маком</h5>
+                    <p class="d-flex justify-content-end gram">1 кг</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>800 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h3 id="stock">Напитки</h3>
+        <section class="catalog">
+            <div class="card_catal">
+                <img src="./img/water1.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Морс из клюквы</h5>
+                    <p class="d-flex justify-content-end gram">0,5 л</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">199 р</p>
+                            <p class="sum" style="display: inline-block;"><b>150 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/water2.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Морс из облепихи</h5>
+                    <p class="d-flex justify-content-end gram">0,5 л</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">199 р</p>
+                            <p class="sum" style="display: inline-block;"><b>150 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/water3.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Морс из смородины</h5>
+                    <p class="d-flex justify-content-end gram">0,5 л</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">199 р</p>
+                            <p class="sum" style="display: inline-block;"><b>150 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card_catal">
+                <img src="./img/water4.png" alt="">
+                <hr class="catal_hr mx-auto">
+                <div class="info">
+                    <h5 class="mb-3">Микс</h5>
+                    <p class="d-flex justify-content-end gram">1 л</p>
+                    <div class="foot_card">
+                        <div>
+                            <p class="through" style="display: inline-block;">999 р</p>
+                            <p class="sum" style="display: inline-block;"><b>750 р</b></p>
+                        </div>
+                        <button class="korz">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h3 id="water">Акции</h3>
+        <div class="water_img">
+            <img src="./img/action1.jpg" alt="">
+            <img src="./img/action2.jpg" alt=""> 
+        </div>        
+    </main>
+    <footer>
+        <div class="row footer_row container">
+            <div class="col-4">
+                
+            </div>
+            <div class="col-4">
+                <h5>Время работы</h5>
+                <p class="text-center mt-3">Пн-пт: 8:00 - 20:00,</p>
+                <p class="text-center">Сб-Вс: 8:00 - 23:00</p>
+            </div>
+            <div class="col-4 block_three">
+                <h5>Соцсети</h5>
+                <div class="social mx-auto mt-3">
+                    <a href=""><img src="./img/vk.png" alt=""></a>
+                    <a href=""><img src="./img/youtube.png" alt=""></a>
+                    <a href=""><img src="./img/tg.png" alt=""></a>
+                </div>
+            </div>
+            <p class="copy">&copy; Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
